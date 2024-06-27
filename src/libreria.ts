@@ -1,19 +1,19 @@
-import { libros } from "./book";
-import { book } from "./books";
+import { libro } from "./libro";
+import { libros } from "./libros";
 
 export class Seccion {
     Nombre: string;
     Descripcion: string;
-    Libros: book[] = [];
+    Libros: libro[] = [];
 
-    constructor(Nombre: string, Descripcion: string, Libros: book[]) {
+    constructor(Nombre: string, Descripcion: string, Libros: libro[]) {
         this.Nombre = Nombre;
         this.Descripcion = Descripcion;
         this.Libros = Libros;
     }
 
 
-    AgregarLibro(libro: book): void {
+    AgregarLibro(libro: libro): void {
         this.Libros.push(libro);
     }
 
@@ -28,7 +28,7 @@ export class Seccion {
     }
 
 
-    ObtenerLibros(): book[] {
+    ObtenerLibros(): libro[] {
         return this.Libros;
     }
 
