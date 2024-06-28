@@ -21,7 +21,7 @@ function agregarLibro(): void {
     const Genero = prompt("Ingrese el género del libro: ");
     const Idioma = prompt("Ingrese el idioma del libro: ");
     const Precio = parseFloat(prompt("Ingrese el precio del libro: "));
-    const ISBN = prompt("Ingrese el ISBN del libro: ");
+    const ISBN = parseInt(prompt("Ingrese el ISBN del libro: "));
     const Editorial = prompt("Ingrese la editorial del libro: ");
     const Paginas = parseInt(prompt("Ingrese el número de páginas del libro: "), 10);
 
