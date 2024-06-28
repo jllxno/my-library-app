@@ -15,12 +15,45 @@ const seccion = new Seccion('Seccion 1', 'Sección dedicada a primeros libros ag
 
 
 
+function agregarLibro(): void {
+    const Titulo = prompt("Ingrese el título del libro: ");
+    const Autor = prompt("Ingrese el autor del libro: ");
+    const Genero = prompt("Ingrese el género del libro: ");
+    const Idioma = prompt("Ingrese el idioma del libro: ");
+    const Precio = parseFloat(prompt("Ingrese el precio del libro: "));
+    const ISBN = prompt("Ingrese el ISBN del libro: ");
+    const Editorial = prompt("Ingrese la editorial del libro: ");
+    const Paginas = parseInt(prompt("Ingrese el número de páginas del libro: "), 10);
+
+    const libros = new libro( Titulo, Autor,Genero,Idioma,Precio,ISBN,Editorial,Paginas);
+    seccion.AgregarLibro(libros);
+    console.log('Libro agregado correctamente.');
+}
 
 
 
+function eliminarLibro(): void {
+    const Titulo = prompt('Ingrese el titulo del libro a eliminar: ');
+    seccion.EliminarLibro(Titulo);
+    console.log('Libro eliminado correctamente.');
+}
 
-
-
+function MostrarLibros(): void {
+    const libros = seccion.ObtenerLibros();
+    if (libros.length === 0) {
+        console.log('No hay libros en la sección.');
+    } else {
+        libros.forEach(librx => {
+            console.log(`
+                Título: ${librx.Titulo},
+                Autor: ${librx.Autor},
+                Género: ${librx.Genero},
+                Idioma: ${librx.idioma},
+                Precio: ${librx.Precio},
+                ISBN: ${librx.ISBN}`);
+        });
+    }
+}
 function menu(): void {
     let opcion: string;
     do {
@@ -33,46 +66,14 @@ function menu(): void {
 
         switch (opcion) {
             case '1':
-                function agregarLibro(): void {
-                    const Titulo = prompt("Ingrese el título del libro: ");
-                    const Autor = prompt("Ingrese el autor del libro: ");
-                    const Genero = prompt("Ingrese el género del libro: ");
-                    const Idioma = prompt("Ingrese el idioma del libro: ");
-                    const Precio = parseFloat(prompt("Ingrese el precio del libro: "));
-                    const ISBN = prompt("Ingrese el ISBN del libro: ");
-                    const Editorial = prompt("Ingrese la editorial del libro: ");
-                    const Paginas = parseInt(prompt("Ingrese el número de páginas del libro: "), 10);
-                
-                    const libros = new libro( Titulo, Autor,Genero,Idioma,Precio,ISBN,Editorial,Paginas);
-                    seccion.AgregarLibro(libros);
-                    console.log('Libro agregado correctamente.');
-                }
+            agregarLibro(); 
                 break;
             case '2':
-                function eliminarLibro(): void {
-                    const Titulo = prompt('Ingrese el titulo del libro a eliminar: ');
-                    seccion.EliminarLibro(Titulo);
-                    console.log('Libro eliminado correctamente.');
-                }
+              eliminarLibro(); 
                 
                 break;
             case '3':
-                function MostrarLibros(): void {
-                    const libros = seccion.ObtenerLibros();
-                    if (libros.length === 0) {
-                        console.log('No hay libros en la sección.');
-                    } else {
-                        libros.forEach(librx => {
-                            console.log(`
-                                Título: ${librx.Titulo},
-                                Autor: ${librx.Autor},
-                                Género: ${librx.Genero},
-                                Idioma: ${librx.idioma},
-                                Precio: ${librx.Precio},
-                                ISBN: ${librx.ISBN}`);
-                        });
-                    }
-                }
+              MostrarLibros();
                 break;
             case '4':
                 console.log('Saliste del menu');
